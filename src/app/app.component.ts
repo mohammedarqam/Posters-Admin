@@ -5,6 +5,8 @@ import * as firebase from 'firebase';
 import { LoginPage } from '../pages/Extra/login/login';
 import { UsersPage } from '../pages/Users/users/users';
 import { DashboardPage } from '../pages/Extra/dashboard/dashboard';
+import { SellersViewPage } from '../pages/Sellers/sellers-view/sellers-view';
+import { BannersPage } from '../pages/Extra/Banners/banners/banners';
 @Component({
   templateUrl: 'app.html'
 })
@@ -26,11 +28,11 @@ export class MyApp {
 
     this.pages = [
       { title: 'DashBoard', component: DashboardPage, icon: "flash",color: "yellowi" },
+      { title: 'Sellers', component: SellersViewPage, icon: "md-ionitron",color: "whiter" },
       { title: 'Users', component: UsersPage, icon: "ios-people",color: "whiter" },
-
-
+      { title: 'Banners', component: BannersPage, icon: "md-images",color: "whiter" },
     ];
-    this.activePage = this.pages[0];
+    this.activePage = this.pages[1];
 
   }
 
@@ -41,7 +43,7 @@ export class MyApp {
         firebase.database().ref("Admin Data").child("Admins").child(user.uid).once('value',itemSnap=>{
             if(itemSnap.exists()){
               var welMsg = "Welcome"+" "+itemSnap.val().Name;
-              this.rootPage = DashboardPage;
+              this.rootPage = BannersPage;
               this.presentToast(welMsg);
             }else{
               firebase.auth().signOut().then(()=>{

@@ -11,8 +11,16 @@ import { AngularFireDatabase } from '@angular/fire/database';
 export class DashboardPage {
 
   users : number = 0;
+  sellers : number = 0;
+  products : number = 0;
+
+
 
   usersRef = this.db.list("User Data/Users");
+  sellersRef = this.db.list("Seller Data/Sellers");
+  productsRef = this.db.list("Products");
+
+
   constructor(
   public navCtrl: NavController,
   private db: AngularFireDatabase,
@@ -20,11 +28,24 @@ export class DashboardPage {
   ) {
       this.menuCtrl.enable(true);
       this.getUsers();
-    }
+      this.getSellers();
+      this.getProducts();
+      }
     
     getUsers(){
       this.usersRef.snapshotChanges().subscribe(snap=>{
         this.users = snap.length;
+      })
+    }
+    getSellers(){
+      this.sellersRef.snapshotChanges().subscribe(snap=>{
+        console.log(snap.length);
+        this.sellers = snap.length;
+      })
+    }
+    getProducts(){
+      this.productsRef.snapshotChanges().subscribe(snap=>{
+        this.products = snap.length;
       })
     }
 
