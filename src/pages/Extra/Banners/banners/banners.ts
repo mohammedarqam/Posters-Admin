@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, ToastController, ModalController, AlertController, MenuController } from 'ionic-angular';
 import * as firebase from 'firebase';
 import { AddBannersPage } from '../add-banners/add-banners';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 
 
@@ -16,15 +17,14 @@ export class BannersPage {
 
 
   bannerRef = firebase.database().ref("Banners");
-
+  bannersRef = this.db.list("Promotionals/Banners")
 
   constructor(
     public navCtrl: NavController,
     public alertCtrl: AlertController,
-    public navParams: NavParams,
+    public db : AngularFireDatabase,
     public loadingCtrl: LoadingController,
     public menuCtrl : MenuController,
-    public modalCtrl: ModalController,
     public toastCtrl: ToastController, ) {
       this.menuCtrl.enable(true);
   }
@@ -33,22 +33,15 @@ export class BannersPage {
     this.getBanners();
   }
   getBanners() {
-    let loading = this.loadingCtrl.create({
-      content: 'Please wait...'
-    });
-    loading.present();
-
-    this.bannerRef.once('value', itemSnapshot => {
+    this.bannersRef.snapshotChanges().subscribe(itemSnapshot => {
       this.banners = [];
       itemSnapshot.forEach(itemSnap => {
-        var temp = itemSnap.val();
+        var temp : any = itemSnap.payload.val();
         temp.key = itemSnap.key;
         this.banners.push(temp);
         return false;
       });
-    }).then(() => {
-      loading.dismiss();
-    });
+    })
   }
 
   gtAddBanner(){
@@ -100,9 +93,6 @@ export class BannersPage {
 
 
 
-/*  delete(banner) {
-  }
-*/
 
 
 

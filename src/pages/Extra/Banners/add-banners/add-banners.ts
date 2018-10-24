@@ -17,7 +17,6 @@ export class AddBannersPage {
   img2: any;
   url: any;
 
-imageRef = firebase.storage().ref("Banners/" + this.order);
 
   constructor(
     public navCtrl: NavController,
@@ -37,10 +36,10 @@ imageRef = firebase.storage().ref("Banners/" + this.order);
       firebase.storage().ref("Banners/" + this.order).getDownloadURL().then((dURL)=>{
         this.url = dURL;
       }).then(()=>{
-        firebase.database().ref("Banners").push({
+        firebase.database().ref("Promotionals/Banners").push({
           Name : this.order,
           Image : this.url,
-          PostTime : moment().format("DD/MMM-HH:mm")
+          PostTime : moment().format()
         }).then(()=>{
           this.navCtrl.setRoot(BannersPage);
         }).then(()=>{
