@@ -32,7 +32,7 @@ export class MyApp {
       { title: 'Users', component: UsersPage, icon: "ios-people",color: "whiter" },
       { title: 'Banners', component: BannersPage, icon: "md-images",color: "whiter" },
     ];
-    this.activePage = this.pages[1];
+    this.activePage = this.pages[0];
 
   }
 
@@ -43,7 +43,7 @@ export class MyApp {
         firebase.database().ref("Admin Data").child("Admins").child(user.uid).once('value',itemSnap=>{
             if(itemSnap.exists()){
               var welMsg = "Welcome"+" "+itemSnap.val().Name;
-              this.rootPage = BannersPage;
+              this.rootPage = DashboardPage;
               this.presentToast(welMsg);
             }else{
               firebase.auth().signOut().then(()=>{
