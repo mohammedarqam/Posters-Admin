@@ -3,78 +3,82 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
+    <ion-buttons end>
+      <button ion-button padding-right margin-right clear icon-only (click)="gtNoti($event)">
+        <ion-icon name="md-notifications"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <ion-grid>
     <ion-row>
-      <ion-col col-4 >
-  <ion-item no-lines class="content">
-  <h1 class="title" item-start>Sellers</h1>
-  </ion-item>
-  </ion-col>
-  <ion-col col-6 push-2 >
-  <ion-searchbar item-end animated="true" placeholder="Search by name" 
-  [(ngModel)]="searchBar" (ionInput)="getItems(searchBar)"></ion-searchbar>
-  </ion-col>
-  </ion-row>
+      <ion-col col-4>
+        <ion-item no-lines class="content">
+          <h1 class="title" item-start>Sellers</h1>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6 push-2>
+        <ion-searchbar item-end animated="true" placeholder="Search by name" [(ngModel)]="searchBar" (ionInput)="getItems(searchBar)"></ion-searchbar>
+      </ion-col>
+    </ion-row>
   </ion-grid>
 
 
-<ion-grid text-center >
-<ion-navbar color="primary" >
-  <ion-row>
-    <ion-col col-3  >
-        <p class="headBar"> Shop Name</p>
-    </ion-col>
-    <ion-col col-2>
-      <p class="headBar"> Owner Name</p>
-    </ion-col>
-    <ion-col col-2>
-        <p class="headBar"> Owner Contact</p>
-    </ion-col>
-    <ion-col col-2>
-        <p class="headBar"> Status </p>
-    </ion-col>
-    <ion-col col-2>
-        <p class="headBar"> Address </p>
-    </ion-col>
-    <ion-col col-1>
+  <ion-grid text-center>
+    <ion-navbar color="primary">
+      <ion-row>
+        <ion-col col-3>
+          <p class="headBar"> Shop Name</p>
+        </ion-col>
+        <ion-col col-2>
+          <p class="headBar"> Owner Name</p>
+        </ion-col>
+        <ion-col col-2>
+          <p class="headBar"> Owner Contact</p>
+        </ion-col>
+        <ion-col col-2>
+          <p class="headBar"> Status </p>
+        </ion-col>
+        <ion-col col-2>
+          <p class="headBar"> Address </p>
+        </ion-col>
+        <ion-col col-1>
 
-    </ion-col>
-  </ion-row>
-</ion-navbar>
-</ion-grid>
+        </ion-col>
+      </ion-row>
+    </ion-navbar>
+  </ion-grid>
 
 
-<ion-grid text-center >
-<ion-card *ngFor="let s of sellers"  >
-<ion-card-content>
-  <ion-row>
-    <ion-col col-3 class="titlCol" >
-        <h1 class="titl">{{s.StoreName}}</h1>
-        <a href="#" >{{s.Email}}</a>
-    </ion-col>
-    <ion-col col-2>
-      {{s.OwnerName}}
-    </ion-col>
-    <ion-col col-2>
-      {{s.PhoneNumber}}
-    </ion-col>
-    <ion-col col-2>
-      <button ion-button block color="yellowi" >{{s.Status}} </button>
-    </ion-col>
-    <ion-col col-2>
-      {{s.StoreLocation}}
-    </ion-col>
-    <ion-col col-1>
-      <button ion-button clear item-end (click)="gtDetails(s)">Details</button>
-    </ion-col>
-  </ion-row>
-</ion-card-content>
-</ion-card>
-</ion-grid>
+  <ion-grid text-center>
+    <ion-card *ngFor="let s of sellers">
+      <ion-card-content>
+        <ion-row>
+          <ion-col col-3 class="titlCol">
+            <h1 class="titl">{{s.StoreName}}</h1>
+            <a href="#">{{s.Email}}</a>
+          </ion-col>
+          <ion-col col-2>
+            {{s.OwnerName}}
+          </ion-col>
+          <ion-col col-2>
+            {{s.PhoneNumber}}
+          </ion-col>
+          <ion-col col-2>
+            <button ion-button block color="yellowi">{{s.Status}} </button>
+          </ion-col>
+          <ion-col col-2>
+            {{s.StoreLocation}}
+          </ion-col>
+          <ion-col col-1>
+            <button ion-button clear item-end (click)="gtDetails(s)">Details</button>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </ion-grid>
 
 
 </ion-content>

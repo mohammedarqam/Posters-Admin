@@ -3,55 +3,60 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
+    <ion-buttons end>
+      <button ion-button padding-right margin-right clear icon-only (click)="gtNoti($event)">
+        <ion-icon name="md-notifications"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-<ion-item no-lines class="content">
-<h1 class="title">DASHBOARD</h1>
-</ion-item>
+  <ion-item no-lines class="content">
+    <h1 class="title">DASHBOARD</h1>
+  </ion-item>
 
-<ion-grid>
-<ion-row>
-
-
-<ion-col col-2>
-  <ion-card>
-    <ion-card-content>
-      <p class="mNum">{{users}}</p>
-      <p  class="mText">Users</p>
-    </ion-card-content>
-  </ion-card>
-</ion-col>
-
-<ion-col col-2>
-  <ion-card>
-    <ion-card-content>
-      <p class="mNum">{{sellers}}</p>
-      <p  class="mText">Sellers</p>
-    </ion-card-content>
-  </ion-card>
-</ion-col>
-
-<ion-col col-2>
-  <ion-card>
-    <ion-card-content>
-      <p class="mNum">{{banners}}</p>
-      <p  class="mText">Banners</p>
-    </ion-card-content>
-  </ion-card>
-</ion-col>
-
-<ion-col col-2>
-  <ion-card>
-    <ion-card-content>
-      <p class="mNum">{{products}}</p>
-      <p  class="mText">Products</p>
-    </ion-card-content>
-  </ion-card>
-</ion-col>
+  <ion-grid>
+    <ion-row>
 
 
-</ion-row>
-</ion-grid>
+      <ion-col col-2>
+        <ion-card>
+          <ion-card-content>
+            <p class="mNum">{{users}}</p>
+            <p class="mText">Users</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col col-2>
+        <ion-card>
+          <ion-card-content>
+            <p class="mNum">{{sellers}}</p>
+            <p class="mText">Sellers</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col col-2>
+        <ion-card>
+          <ion-card-content>
+            <p class="mNum">{{banners}}</p>
+            <p class="mText">Banners</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col col-2>
+        <ion-card>
+          <ion-card-content>
+            <p class="mNum">{{products}}</p>
+            <p class="mText">Products</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+
+    </ion-row>
+  </ion-grid>
 </ion-content>

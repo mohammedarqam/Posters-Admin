@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, ToastController, ModalController, AlertController, MenuController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, ToastController, ModalController, AlertController, MenuController, PopoverController } from 'ionic-angular';
 import * as firebase from 'firebase';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AddBannersPage } from '../../Banners/add-banners/add-banners';
+import { NotiPopPage } from '../../Extra/Notifications/noti-pop/noti-pop';
 
 
 
@@ -24,6 +25,7 @@ export class BannersPage {
     public alertCtrl: AlertController,
     public db : AngularFireDatabase,
     public loadingCtrl: LoadingController,
+    public popoverCtrl : PopoverController,
     public menuCtrl : MenuController,
     public toastCtrl: ToastController, ) {
       this.menuCtrl.enable(true);
@@ -95,7 +97,12 @@ export class BannersPage {
 
 
 
-
+ gtNoti(myEvent) {
+  let popover = this.popoverCtrl.create(NotiPopPage);
+  popover.present({
+    ev: myEvent
+  });
+}
   presentToast() {
     let toast = this.toastCtrl.create({
       message: 'Banner Deleted',

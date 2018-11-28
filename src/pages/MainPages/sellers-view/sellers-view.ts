@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController, PopoverController } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { SellersDetailsPage } from '../../Sellers/sellers-details/sellers-details';
+import { NotiPopPage } from '../../Extra/Notifications/noti-pop/noti-pop';
 
 
 @IonicPage()
@@ -68,6 +69,12 @@ export class SellersViewPage {
 
   gtDetails(s){
     this.navCtrl.push(SellersDetailsPage,{seller : s});
+  }
+  gtNoti(myEvent) {
+    let popover = this.popoverCtrl.create(NotiPopPage);
+    popover.present({
+      ev: myEvent
+    });
   }
 
 }

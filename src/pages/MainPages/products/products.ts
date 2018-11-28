@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, MenuController, PopoverController,
 import { AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase';
 import { ProductDetailsPage } from '../../Products/product-details/product-details';
+import { NotiPopPage } from '../../Extra/Notifications/noti-pop/noti-pop';
 
 
 @IonicPage()
@@ -50,4 +51,11 @@ export class ProductsPage {
   gtPDetails(p){
       this.navCtrl.push(ProductDetailsPage,{product : p});
   }
+  gtNoti(myEvent) {
+    let popover = this.popoverCtrl.create(NotiPopPage);
+    popover.present({
+      ev: myEvent
+    });
+  }
+
 }

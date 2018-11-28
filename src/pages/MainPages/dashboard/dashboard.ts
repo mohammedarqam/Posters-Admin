@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController, PopoverController } from 'ionic-angular';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { NotiPopPage } from '../../Extra/Notifications/noti-pop/noti-pop';
 
 
 @IonicPage()
@@ -25,6 +26,7 @@ export class DashboardPage {
   constructor(
   public navCtrl: NavController,
   private db: AngularFireDatabase,
+  public popoverCtrl : PopoverController,
   private menuCtrl : MenuController,
   ) {
       this.menuCtrl.enable(true);
@@ -55,5 +57,11 @@ export class DashboardPage {
         this.banners = snap.length;
       })
     }
-
+    gtNoti(myEvent) {
+      let popover = this.popoverCtrl.create(NotiPopPage);
+      popover.present({
+        ev: myEvent
+      });
+    }
+  
 }

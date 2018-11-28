@@ -19,6 +19,8 @@ import { ProductDetailsPage } from '../pages/Products/product-details/product-de
 import { ProductsPage } from '../pages/MainPages/products/products';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { ViewBarCodePage } from '../pages/Products/view-bar-code/view-bar-code';
+import { NotificationsPage } from '../pages/Extra/Notifications/notifications/notifications';
+import { NotiPopPage } from '../pages/Extra/Notifications/noti-pop/noti-pop';
 
 
 
@@ -50,6 +52,8 @@ firebase.initializeApp(firebaseCred);
     ProductDetailsPage,
     ProductsPage,
     ViewBarCodePage,
+    NotificationsPage,
+    NotiPopPage,
   ],
   imports: [
     BrowserModule,
@@ -74,6 +78,8 @@ firebase.initializeApp(firebaseCred);
     ProductsPage,
     ProductDetailsPage,
     ViewBarCodePage,
+    NotificationsPage,
+    NotiPopPage,
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler}
