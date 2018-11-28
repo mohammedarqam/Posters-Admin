@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import * as firebase from 'firebase';
+import { ViewBarCodePage } from '../view-bar-code/view-bar-code';
 
-/**
- * Generated class for the ProductDetailsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
+
 
 @IonicPage()
 @Component({
@@ -15,11 +13,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ProductDetailsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  prod = this.navParams.get("product");
+
+  constructor(
+  public navCtrl: NavController, 
+  public navParams: NavParams
+  ) {
+    console.log(this.prod);
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ProductDetailsPage');
+  viewBar(){
+    this.navCtrl.push(ViewBarCodePage,{product : this.prod});
   }
-
 }

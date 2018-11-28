@@ -17,6 +17,8 @@ import { AddBannersPage } from '../pages/Banners/add-banners/add-banners';
 import { BannersPage } from '../pages/MainPages/banners/banners';
 import { ProductDetailsPage } from '../pages/Products/product-details/product-details';
 import { ProductsPage } from '../pages/MainPages/products/products';
+import { NgxQRCodeModule } from 'ngx-qrcode2';
+import { ViewBarCodePage } from '../pages/Products/view-bar-code/view-bar-code';
 
 
 
@@ -47,6 +49,7 @@ firebase.initializeApp(firebaseCred);
     AddBannersPage,
     ProductDetailsPage,
     ProductsPage,
+    ViewBarCodePage,
   ],
   imports: [
     BrowserModule,
@@ -54,6 +57,7 @@ firebase.initializeApp(firebaseCred);
     AngularFireModule.initializeApp(firebaseCred),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    NgxQRCodeModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -69,6 +73,7 @@ firebase.initializeApp(firebaseCred);
     AddBannersPage,
     ProductsPage,
     ProductDetailsPage,
+    ViewBarCodePage,
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler}
