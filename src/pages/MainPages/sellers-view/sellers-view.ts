@@ -55,8 +55,8 @@ export class SellersViewPage {
       return;
     }
     this.sellers = this.sellers.filter((v) => {
-      if((v.Name) && q) {
-        if (v.Name.toLowerCase().indexOf(q.toLowerCase()) > -1)
+      if((v.StoreName) && q) {
+        if (v.StoreName.toLowerCase().indexOf(q.toLowerCase()) > -1)
           {
           return true;
         }

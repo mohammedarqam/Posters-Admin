@@ -9,16 +9,58 @@
 
 <ion-content padding>
 
-    <ion-card>
-      <ion-card-content>
-  
-        <ion-item>
-          <p item-start ion-text color="primary"></p>
-          <p item-end ></p>
-        </ion-item>
-        
-      </ion-card-content>
-    </ion-card>
-  
-  </ion-content>
-  
+  <ion-card>
+    <ion-card-content>
+
+      <button ion-button float-right (click)="vSeller()" *ngIf="!ver" >Verify Seller</button>
+      <button ion-button float-right (click)="uSeller()" *ngIf="ver" >Unverify Seller</button>
+
+      <ion-item>
+        <p item-start ion-text color="primary">Store Name</p>
+        <p item-end>{{seller.StoreName}}</p>
+      </ion-item>
+
+      <ion-item>
+        <p item-start ion-text color="primary">Status</p>
+        <p item-end>{{seller.Status}}</p>
+      </ion-item>
+
+      <ion-item>
+        <p item-start ion-text color="primary">Store Category</p>
+        <p item-end>{{seller.StoreCategory}}</p>
+      </ion-item>
+
+      <ion-item>
+        <p item-start ion-text color="primary">PhoneNumber</p>
+        <p item-end>{{seller.PhoneNumber}}</p>
+      </ion-item>
+
+      <ion-item>
+        <p item-start ion-text color="primary">Owner Name</p>
+        <p item-end>{{seller.OwnerName}}</p>
+      </ion-item>
+
+      <ion-item>
+        <p item-start ion-text color="primary">Email</p>
+        <p item-end>{{seller.Email}}</p>
+      </ion-item>
+
+      <ion-item>
+        <p item-start ion-text color="primary">Store Location</p>
+        <p item-end>{{seller.StoreLocation}}</p>
+      </ion-item>
+
+      <ion-item>
+        <p item-start ion-text color="primary">Visible to Users</p>
+        <p item-end>{{seller.Visible}}</p>
+      </ion-item>
+
+      <ion-item>
+        <p item-start ion-text color="primary">Store Created</p>
+        <p item-end>{{seller.TimeStamp}}</p>
+      </ion-item>
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

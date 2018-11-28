@@ -39,7 +39,7 @@
               <ion-icon name="md-mail" item-start color="primary"></ion-icon>
               <p item-end > {{u.Email}} </p>
             </ion-item>
-            <ion-item>
+            <ion-item *ngIf="u.Phone" >
               <ion-icon name="md-call" item-start color="primary"></ion-icon>
               <p item-end > {{u.Phone}} </p>
             </ion-item>
