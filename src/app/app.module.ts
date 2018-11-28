@@ -2,21 +2,23 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { DashboardPage } from '../pages/Extra/dashboard/dashboard';
-import { LoginPage } from '../pages/Extra/login/login';
-import { UsersPage } from '../pages/Users/users/users';
 import { UserDetailsPage } from '../pages/Users/user-details/user-details';
 import { UserOptionsPage } from '../pages/Users/user-options/user-options';
 import * as firebase from 'firebase';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import {AngularFireAuthModule} from 'angularfire2/auth';
-import { SellersViewPage } from '../pages/Sellers/sellers-view/sellers-view';
 import { SellersDetailsPage } from '../pages/Sellers/sellers-details/sellers-details';
 import { VerifySellerPage } from '../pages/Sellers/verify-seller/verify-seller';
 import { SellerIssuesPage } from '../pages/Sellers/seller-issues/seller-issues';
-import { BannersPage } from '../pages/Extra/Banners/banners/banners';
-import { AddBannersPage } from '../pages/Extra/Banners/add-banners/add-banners';
+import { DashboardPage } from '../pages/MainPages/dashboard/dashboard';
+import { LoginPage } from '../pages/Auth/login/login';
+import { UsersPage } from '../pages/MainPages/users/users';
+import { SellersViewPage } from '../pages/MainPages/sellers-view/sellers-view';
+import { AddBannersPage } from '../pages/Banners/add-banners/add-banners';
+import { BannersPage } from '../pages/MainPages/banners/banners';
+import { ProductsPage } from '../pages/Products/products/products';
+import { ProductDetailsPage } from '../pages/Products/product-details/product-details';
 
 
 
@@ -47,6 +49,8 @@ firebase.initializeApp(firebaseCred);
     SellerIssuesPage,
     BannersPage,
     AddBannersPage,
+    ProductsPage,
+    ProductDetailsPage,
   ],
   imports: [
     BrowserModule,
@@ -69,6 +73,8 @@ firebase.initializeApp(firebaseCred);
     SellerIssuesPage,
     BannersPage,
     AddBannersPage,
+    ProductsPage,
+    ProductDetailsPage,
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler}

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 import moment from 'moment';
 import * as firebase from 'firebase';
-import { BannersPage } from '../banners/banners';
+import { BannersPage } from '../../MainPages/banners/banners';
 
 
 @IonicPage()

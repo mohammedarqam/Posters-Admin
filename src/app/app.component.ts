@@ -2,11 +2,11 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform, ToastController } from 'ionic-angular';
 
 import * as firebase from 'firebase';
-import { LoginPage } from '../pages/Extra/login/login';
-import { UsersPage } from '../pages/Users/users/users';
-import { DashboardPage } from '../pages/Extra/dashboard/dashboard';
-import { SellersViewPage } from '../pages/Sellers/sellers-view/sellers-view';
-import { BannersPage } from '../pages/Extra/Banners/banners/banners';
+import { LoginPage } from '../pages/Auth/login/login';
+import { DashboardPage } from '../pages/MainPages/dashboard/dashboard';
+import { SellersViewPage } from '../pages/MainPages/sellers-view/sellers-view';
+import { UsersPage } from '../pages/MainPages/users/users';
+import { BannersPage } from '../pages/MainPages/banners/banners';
 @Component({
   templateUrl: 'app.html'
 })

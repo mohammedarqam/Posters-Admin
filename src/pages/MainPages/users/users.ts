@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, PopoverController } from 'ionic-angular';
 import { AngularFireDatabase } from '@angular/fire/database';
-import { UserOptionsPage } from '../user-options/user-options';
+import { UserOptionsPage } from '../../Users/user-options/user-options';
 
 
 

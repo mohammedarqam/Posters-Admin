@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, ToastController, ModalController, AlertController, MenuController } from 'ionic-angular';
 import * as firebase from 'firebase';
-import { AddBannersPage } from '../add-banners/add-banners';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { AddBannersPage } from '../../Banners/add-banners/add-banners';
 
 
 

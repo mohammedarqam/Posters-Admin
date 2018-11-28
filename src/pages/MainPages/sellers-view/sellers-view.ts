@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController, PopoverController } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
-import { SellersDetailsPage } from '../sellers-details/sellers-details';
+import { SellersDetailsPage } from '../../Sellers/sellers-details/sellers-details';
 
 
 @IonicPage()
