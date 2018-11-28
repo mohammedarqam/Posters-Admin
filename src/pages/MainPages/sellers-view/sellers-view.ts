@@ -13,15 +13,8 @@ export class SellersViewPage {
 
   sellersRef = this.db.list('Seller Data/Sellers', ref=>ref.orderByChild("TimeStamp"));
 
-  pendingSellers : Array<any>=[];  
-  verifiedSellers : Array<any>=[];  
-
-  showPending : boolean = true;
-  showVerified : boolean = true;
-
-  filterV : string ="all" ;
-  // sellers: Array<any> = [];
-  // sellersLoaded: Array<any> = [];
+  sellers: Array<any> = [];
+  sellersLoaded: Array<any> = [];
 
 
   constructor(
@@ -39,57 +32,40 @@ export class SellersViewPage {
 
   getUsers(){
     this.sellersRef.snapshotChanges().subscribe(snap=>{
-      this.pendingSellers = []; this.verifiedSellers = [];
+      let tempArray : Array<any> = []; 
       snap.forEach(snp=>{
+
         let temp : any = snp.payload.val();
         temp.key = snp.key;
-
-        switch (temp.Status) {
-          case "Pending": this.pendingSellers.push(temp);
-            break;
-          case "Verified": this.verifiedSellers.push(temp);
-            break;
-
-        }
-
+        tempArray.push(temp);
       })
+      this.sellers = tempArray;
+      this.sellersLoaded = tempArray;
     })
 
   }
 
-  // initializeItems(): void {
-  //   this.sellers = this.sellersLoaded;
-  // }
-  // getItems(searchbar) {
-  //   this.initializeItems();
-  //   let q = searchbar;
-  //   if (!q) {
-  //     return;
-  //   }
-  //   this.sellers = this.sellers.filter((v) => {
-  //     if((v.Name) && q) {
-  //       if (v.Name.toLowerCase().indexOf(q.toLowerCase()) > -1)
-  //         {
-  //         return true;
-  //       }
-  //       return false;
-  //     }
-  //   });
-  // }
-
-  filterVendors(){
-    switch (this.filterV) {
-      case "all": this.showPending = true; this.showVerified = true;
-        break;
-      case "pending": this.showPending = true; this.showVerified = false;
-        break;
-      case "verified": this.showPending = false; this.showVerified = true;
-        break;
-    
-      default: this.showPending = true; this.showVerified = true;
-        break;
-    }
+  initializeItems(): void {
+    this.sellers = this.sellersLoaded;
   }
+  getItems(searchbar) {
+    this.initializeItems();
+    let q = searchbar;
+    if (!q) {
+      return;
+    }
+    this.sellers = this.sellers.filter((v) => {
+      if((v.Name) && q) {
+        if (v.Name.toLowerCase().indexOf(q.toLowerCase()) > -1)
+          {
+          return true;
+        }
+        return false;
+      }
+    });
+  }
+
+
   gtDetails(s){
     this.navCtrl.push(SellersDetailsPage,{seller : s});
   }

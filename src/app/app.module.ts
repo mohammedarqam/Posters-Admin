@@ -9,16 +9,14 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 import { SellersDetailsPage } from '../pages/Sellers/sellers-details/sellers-details';
-import { VerifySellerPage } from '../pages/Sellers/verify-seller/verify-seller';
-import { SellerIssuesPage } from '../pages/Sellers/seller-issues/seller-issues';
 import { DashboardPage } from '../pages/MainPages/dashboard/dashboard';
 import { LoginPage } from '../pages/Auth/login/login';
 import { UsersPage } from '../pages/MainPages/users/users';
 import { SellersViewPage } from '../pages/MainPages/sellers-view/sellers-view';
 import { AddBannersPage } from '../pages/Banners/add-banners/add-banners';
 import { BannersPage } from '../pages/MainPages/banners/banners';
-import { ProductsPage } from '../pages/Products/products/products';
 import { ProductDetailsPage } from '../pages/Products/product-details/product-details';
+import { ProductsPage } from '../pages/MainPages/products/products';
 
 
 
@@ -45,12 +43,10 @@ firebase.initializeApp(firebaseCred);
     UserOptionsPage,
     SellersViewPage,
     SellersDetailsPage,
-    VerifySellerPage,
-    SellerIssuesPage,
     BannersPage,
     AddBannersPage,
-    ProductsPage,
     ProductDetailsPage,
+    ProductsPage,
   ],
   imports: [
     BrowserModule,
@@ -69,8 +65,6 @@ firebase.initializeApp(firebaseCred);
     UserOptionsPage,
     SellersViewPage,
     SellersDetailsPage,
-    VerifySellerPage,
-    SellerIssuesPage,
     BannersPage,
     AddBannersPage,
     ProductsPage,

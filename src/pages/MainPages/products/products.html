@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item no-lines class="content">
+    <h1 class="title">PRODUCTS</h1>
+  </ion-item>
+
+
+
+  <ion-grid>
+    <ion-navbar color="primary">
+      <ion-row>
+        <ion-col col-2>
+          <ion-title>Product Name</ion-title>
+        </ion-col>
+        <ion-col col-2>
+          <ion-title>Category</ion-title>
+        </ion-col>
+        <ion-col col-1>
+          <ion-title>Quantity</ion-title>
+        </ion-col>
+        <ion-col col-2>
+          <ion-title>Status</ion-title>
+        </ion-col>
+        <ion-col col-1>
+          <ion-title>Sales</ion-title>
+        </ion-col>
+        <ion-col col-2>
+          <ion-title>Store name</ion-title>
+        </ion-col>
+      </ion-row>
+    </ion-navbar>
+  </ion-grid>
+
+
+  <ion-card *ngIf="prods.length">
+    <ion-card-content>
+      <ion-grid>
+        <ion-row text-left *ngFor="let p of prods">
+          <ion-col col-2>
+            {{p.Name}}
+          </ion-col>
+          <ion-col col-2>
+            {{p.Category}}
+          </ion-col>
+          <ion-col col-1>
+            {{p.Quantity}}
+          </ion-col>
+          <ion-col col-2>
+            {{p.Status}}
+          </ion-col>
+          <ion-col col-1>
+            {{p.Sales}}
+          </ion-col>
+          <ion-col col-2>
+            {{p.StoreName}}
+          </ion-col>
+
+          <ion-col col-1>
+            <a [href]="p.ImageUrl" target="_blank">
+              <button ion-button icon-only clear>
+                <ion-icon name="ios-image"></ion-icon>
+              </button>
+            </a>
+          </ion-col>
+          <ion-col col-1>
+            <button ion-button clear (click)="gtPDetails(p)">Details</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+
+
+
+
+
+
+
+</ion-content>

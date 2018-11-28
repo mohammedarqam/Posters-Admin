@@ -19,19 +19,6 @@
   [(ngModel)]="searchBar" (ionInput)="getItems(searchBar)"></ion-searchbar>
   </ion-col>
   </ion-row>
-
-  <ion-row>
-  <ion-col col-4 push-8>
-  <ion-item>
-    <ion-label>Filter</ion-label>
-    <ion-select [(ngModel)]="filterV" (ionChange)="filterVendors()" >
-      <ion-option value="all">All Vendors</ion-option>
-      <ion-option value="pending">All Pending</ion-option>
-      <ion-option value="verified">All Verified</ion-option>
-    </ion-select>
-  </ion-item>
-  </ion-col>
-</ion-row>
   </ion-grid>
 
 
@@ -61,53 +48,25 @@
 </ion-grid>
 
 
-<ion-grid text-center  *ngIf="showPending" >
-<ion-card *ngFor="let s of pendingSellers"  >
+<ion-grid text-center >
+<ion-card *ngFor="let s of sellers"  >
 <ion-card-content>
   <ion-row>
     <ion-col col-3 class="titlCol" >
-        <h1 class="titl">{{s.ShopName}}</h1>
+        <h1 class="titl">{{s.StoreName}}</h1>
         <a href="#" >{{s.Email}}</a>
     </ion-col>
     <ion-col col-2>
       {{s.OwnerName}}
     </ion-col>
     <ion-col col-2>
-      {{s.OwnerContact}}
+      {{s.PhoneNumber}}
     </ion-col>
     <ion-col col-2>
       <button ion-button block color="yellowi" >{{s.Status}} </button>
     </ion-col>
     <ion-col col-2>
-      {{s.Address}}
-    </ion-col>
-    <ion-col col-1>
-      <button ion-button clear item-end (click)="gtDetails(s)">Details</button>
-    </ion-col>
-  </ion-row>
-</ion-card-content>
-</ion-card>
-</ion-grid>
-
-<ion-grid text-center  *ngIf="showVerified" >
-<ion-card *ngFor="let s of verifiedSellers"  >
-<ion-card-content>
-  <ion-row>
-    <ion-col col-3 class="titlCol" >
-        <h1 class="titl">{{s.ShopName}}</h1>
-        <a href="#" >{{s.Email}}</a>
-    </ion-col>
-    <ion-col col-2>
-      {{s.OwnerName}}
-    </ion-col>
-    <ion-col col-2>
-      {{s.OwnerContact}}
-    </ion-col>
-    <ion-col col-2>
-      <button ion-button block color="secondary"  >{{s.Status}} </button>
-    </ion-col>
-    <ion-col col-2>
-      {{s.Address}}
+      {{s.StoreLocation}}
     </ion-col>
     <ion-col col-1>
       <button ion-button clear item-end (click)="gtDetails(s)">Details</button>
