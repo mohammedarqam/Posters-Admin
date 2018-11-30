@@ -34,6 +34,15 @@
               <p item-end>{{prod.Quantity}}</p>
             </ion-item>
 
+            <ion-item *ngIf="prod.Color" >
+              <p item-start ion-text color="primary">Color</p>
+              <p item-end>{{prod.Color}}</p>
+            </ion-item>
+
+            <ion-item *ngIf="prod.Size" >
+              <p item-start ion-text color="primary">Size</p>
+              <p item-end>{{prod.Size}}</p>
+            </ion-item>
 
 
             <ion-item>
