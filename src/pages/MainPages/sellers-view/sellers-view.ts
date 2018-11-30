@@ -12,18 +12,18 @@ import { NotiPopPage } from '../../Extra/Notifications/noti-pop/noti-pop';
 })
 export class SellersViewPage {
 
-  sellersRef = this.db.list('Seller Data/Sellers', ref=>ref.orderByChild("TimeStamp"));
+  sellersRef = this.db.list('Seller Data/Sellers', ref => ref.orderByChild("TimeStamp"));
 
   sellers: Array<any> = [];
   sellersLoaded: Array<any> = [];
 
 
   constructor(
-  public navCtrl: NavController, 
-  public db : AngularFireDatabase,
-  public popoverCtrl : PopoverController,
-  public menuCtrl : MenuController,
-  public navParams: NavParams
+    public navCtrl: NavController,
+    public db: AngularFireDatabase,
+    public popoverCtrl: PopoverController,
+    public menuCtrl: MenuController,
+    public navParams: NavParams
   ) {
     this.menuCtrl.enable(true);
     this.getUsers();
@@ -31,13 +31,19 @@ export class SellersViewPage {
 
 
 
-  getUsers(){
-    this.sellersRef.snapshotChanges().subscribe(snap=>{
-      let tempArray : Array<any> = []; 
-      snap.forEach(snp=>{
+  getUsers() {
+    this.sellersRef.snapshotChanges().subscribe(snap => {
+      let tempArray: Array<any> = [];
+      snap.forEach(snp => {
 
-        let temp : any = snp.payload.val();
+        let temp: any = snp.payload.val();
         temp.key = snp.key;
+        switch (temp.Status) {
+          case "Unverified": temp.collo = "yellowi";
+            break;
+          case "Verified": temp.collo = "secondary";
+            break;
+        }
         tempArray.push(temp);
       })
       this.sellers = tempArray;
@@ -56,9 +62,8 @@ export class SellersViewPage {
       return;
     }
     this.sellers = this.sellers.filter((v) => {
-      if((v.StoreName) && q) {
-        if (v.StoreName.toLowerCase().indexOf(q.toLowerCase()) > -1)
-          {
+      if ((v.StoreName) && q) {
+        if (v.StoreName.toLowerCase().indexOf(q.toLowerCase()) > -1) {
           return true;
         }
         return false;
@@ -67,8 +72,8 @@ export class SellersViewPage {
   }
 
 
-  gtDetails(s){
-    this.navCtrl.push(SellersDetailsPage,{seller : s});
+  gtDetails(s) {
+    this.navCtrl.push(SellersDetailsPage, { seller: s });
   }
   gtNoti(myEvent) {
     let popover = this.popoverCtrl.create(NotiPopPage);

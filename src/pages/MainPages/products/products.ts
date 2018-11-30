@@ -8,21 +8,21 @@ import { NotiPopPage } from '../../Extra/Notifications/noti-pop/noti-pop';
 
 @IonicPage()
 @Component({
-    selector: 'page-products',
-    templateUrl: 'products.html',
-  })
+  selector: 'page-products',
+  templateUrl: 'products.html',
+})
 export class ProductsPage {
 
   prods: Array<any> = [];
 
 
   constructor(
-  public navCtrl: NavController, 
-  public db: AngularFireDatabase,
-  public popoverCtrl : PopoverController,
-  public loadingCtrl: LoadingController,
-  public menuCtrl : MenuController,
-  public navParams: NavParams
+    public navCtrl: NavController,
+    public db: AngularFireDatabase,
+    public popoverCtrl: PopoverController,
+    public loadingCtrl: LoadingController,
+    public menuCtrl: MenuController,
+    public navParams: NavParams
   ) {
     this.menuCtrl.enable(true);
     this.getProducts();
@@ -40,6 +40,12 @@ export class ProductsPage {
         firebase.database().ref("Products").child(snip.key).once("value", iiSnap => {
           var temp: any = iiSnap.val();
           temp.key = iiSnap.key;
+          switch (temp.Status) {
+            case "Pending": temp.collo = "yellowi";
+              break;
+            case "Verified": temp.collo = "secondary";
+              break;
+          }
           this.prods.push(temp);
         }).then(() => {
           // loading.dismiss();
@@ -48,8 +54,8 @@ export class ProductsPage {
     })
   }
 
-  gtPDetails(p){
-      this.navCtrl.push(ProductDetailsPage,{product : p});
+  gtPDetails(p) {
+    this.navCtrl.push(ProductDetailsPage, { product: p });
   }
   gtNoti(myEvent) {
     let popover = this.popoverCtrl.create(NotiPopPage);

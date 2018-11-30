@@ -54,16 +54,16 @@
           <ion-col col-2>
             {{p.Category}}
           </ion-col>
-          <ion-col col-1>
+          <ion-col col-1 text-center >
             {{p.Quantity}}
           </ion-col>
           <ion-col col-2>
-            {{p.Status}}
+            <button ion-button block [color]="p.collo">{{p.Status}} </button>
           </ion-col>
-          <ion-col col-1>
+          <ion-col col-1 text-center >
             {{p.Sales}}
           </ion-col>
-          <ion-col col-2>
+          <ion-col col-2 text-center >
             {{p.StoreName}}
           </ion-col>
 
