@@ -8,13 +8,14 @@ import { SellersViewPage } from '../pages/MainPages/sellers-view/sellers-view';
 import { UsersPage } from '../pages/MainPages/users/users';
 import { BannersPage } from '../pages/MainPages/banners/banners';
 import { ProductsPage } from '../pages/MainPages/products/products';
+import { CategoriesPage } from '../pages/Categories/categories/categories';
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = LoginPage;
+  rootPage: any ;
   activePage: any;
 
   full : boolean = true;
@@ -30,6 +31,7 @@ export class MyApp {
     this.pages = [
       { title: 'DashBoard', component: DashboardPage, icon: "ios-analytics",color: "whiter" },
       { title: 'Sellers', component: SellersViewPage, icon: "md-ionitron",color: "whiter" },
+      { title: 'Categories', component: CategoriesPage, icon: "logo-buffer",color: "whiter" },
       { title: 'Products', component: ProductsPage, icon: "md-cube",color: "whiter" },
       { title: 'Users', component: UsersPage, icon: "ios-people",color: "whiter" },
       { title: 'Banners', component: BannersPage, icon: "md-images",color: "whiter" },
@@ -45,7 +47,7 @@ export class MyApp {
         firebase.database().ref("Admin Data").child("Admins").child(user.uid).once('value',itemSnap=>{
             if(itemSnap.exists()){
               var welMsg = "Welcome"+" "+itemSnap.val().Name;
-              this.rootPage = ProductsPage;
+              this.rootPage = CategoriesPage;
               this.presentToast(welMsg);
             }else{
               firebase.auth().signOut().then(()=>{

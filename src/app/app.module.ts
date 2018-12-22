@@ -21,6 +21,12 @@ import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { ViewBarCodePage } from '../pages/Products/view-bar-code/view-bar-code';
 import { NotificationsPage } from '../pages/Extra/Notifications/notifications/notifications';
 import { NotiPopPage } from '../pages/Extra/Notifications/noti-pop/noti-pop';
+import { CategoriesPage } from '../pages/Categories/categories/categories';
+import { AddCategoriesPage } from '../pages/Categories/add-categories/add-categories';
+import { AddSubCatPage } from '../pages/Categories/SubCat/add-sub-cat/add-sub-cat';
+import { SubCateViewPage } from '../pages/Categories/SubCat/sub-cate-view/sub-cate-view';
+import { AddSubCatItemPage } from '../pages/Categories/SubCatItem/add-sub-cat-item/add-sub-cat-item';
+import { SubCatItemViewPage } from '../pages/Categories/SubCatItem/sub-cat-item-view/sub-cat-item-view';
 
 
 
@@ -54,6 +60,12 @@ firebase.initializeApp(firebaseCred);
     ViewBarCodePage,
     NotificationsPage,
     NotiPopPage,
+    CategoriesPage,
+    AddCategoriesPage,
+    SubCateViewPage,
+    AddSubCatPage,
+    AddSubCatItemPage,
+    SubCatItemViewPage,    
   ],
   imports: [
     BrowserModule,
@@ -80,6 +92,13 @@ firebase.initializeApp(firebaseCred);
     ViewBarCodePage,
     NotificationsPage,
     NotiPopPage,
+    CategoriesPage,
+    AddCategoriesPage,
+    SubCateViewPage,
+    AddSubCatPage,
+    AddSubCatItemPage,
+    SubCatItemViewPage,    
+
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler}
