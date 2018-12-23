@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, PopoverController } from 'ionic-angular';
 import { AddCategoriesPage } from '../add-categories/add-categories';
 import { AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase';
 import { SubCateViewPage } from '../SubCat/sub-cate-view/sub-cate-view';
+import { NotiPopPage } from '../../Extra/Notifications/noti-pop/noti-pop';
 
 @IonicPage()
 @Component({
@@ -18,6 +19,7 @@ export class CategoriesPage {
     public navCtrl: NavController,
     public modalCtrl: ModalController,
     public navParams: NavParams,
+    public popoverCtrl : PopoverController,
     public db : AngularFireDatabase,
   ) {
     this.getCats();
@@ -43,5 +45,11 @@ export class CategoriesPage {
   gtAddCat() {
     let profileModal = this.modalCtrl.create(AddCategoriesPage);
     profileModal.present();
+  }
+  gtNoti(myEvent) {
+    let popover = this.popoverCtrl.create(NotiPopPage);
+    popover.present({
+      ev: myEvent
+    });
   }
 }

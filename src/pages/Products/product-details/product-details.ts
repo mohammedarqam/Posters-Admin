@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 import * as firebase from 'firebase';
 import { ViewBarCodePage } from '../view-bar-code/view-bar-code';
-
+import moment from 'moment';
 
 
 
@@ -48,7 +48,16 @@ export class ProductDetailsPage {
       loading.dismiss();
       this.presentToast("Product Verified");
 
+    }).then(()=>{
+      firebase.database().ref("Seller Data").child("Notifications").child(this.prod.StoreKey).push({
+        Name : this.prod.Name,
+        ProductKey : this.prod.key,
+        Type: "Product Verified",
+        Status: "Unread",
+        TimeStamp : moment().format(),
+      })
     });
+
   }
 
   uProduct() {
@@ -62,6 +71,14 @@ export class ProductDetailsPage {
       loading.dismiss();
       this.presentToast("Product Unverified");
 
+    }).then(()=>{
+      firebase.database().ref("Seller Data").child("Notifications").child(this.prod.StoreKey).push({
+        Name : this.prod.Name,
+        ProductKey : this.prod.key,
+        Type: "Product Unverified",
+        Status: "Unread",
+        TimeStamp : moment().format(),
+      })
     });
   }
 

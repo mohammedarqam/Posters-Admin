@@ -43,7 +43,6 @@ export class DashboardPage {
     }
     getSellers(){
       this.sellersRef.snapshotChanges().subscribe(snap=>{
-        console.log(snap.length);
         this.sellers = snap.length;
       })
     }

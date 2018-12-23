@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
 import * as firebase from 'firebase';
+import moment from 'moment' ;
+
 
 @IonicPage()
 @Component({
@@ -41,6 +43,12 @@ export class SellersDetailsPage {
       loading.dismiss();
       this.presentToast("Seller Verified");
 
+    }).then(()=>{
+      firebase.database().ref("Seller Data").child("Notifications").child(this.seller.key).push({
+        Type: "Seller Verified",
+        Status: "Unread",
+        TimeStamp : moment().format(),
+      })
     });
   }
 
@@ -55,7 +63,14 @@ export class SellersDetailsPage {
       loading.dismiss();
       this.presentToast("Seller Unverified");
 
+    }).then(()=>{
+      firebase.database().ref("Seller Data").child("Notifications").child(this.seller.key).push({
+        Type: "Seller UnVerified",
+        Status: "Unread",
+        TimeStamp : moment().format(),
+      })
     });
+    
   }
 
 
