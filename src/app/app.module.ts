@@ -27,6 +27,9 @@ import { AddSubCatPage } from '../pages/Categories/SubCat/add-sub-cat/add-sub-ca
 import { SubCateViewPage } from '../pages/Categories/SubCat/sub-cate-view/sub-cate-view';
 import { AddSubCatItemPage } from '../pages/Categories/SubCatItem/add-sub-cat-item/add-sub-cat-item';
 import { SubCatItemViewPage } from '../pages/Categories/SubCatItem/sub-cat-item-view/sub-cat-item-view';
+import { FaqsPage } from '../pages/Extra/Faqs/faqs/faqs';
+import { FaqsUserPage } from '../pages/Extra/Faqs/faqs-user/faqs-user';
+import { FaqsVendorPage } from '../pages/Extra/Faqs/faqs-vendor/faqs-vendor';
 
 
 
@@ -65,7 +68,10 @@ firebase.initializeApp(firebaseCred);
     SubCateViewPage,
     AddSubCatPage,
     AddSubCatItemPage,
-    SubCatItemViewPage,    
+    SubCatItemViewPage, 
+    FaqsPage,
+    FaqsUserPage,
+    FaqsVendorPage,   
   ],
   imports: [
     BrowserModule,
@@ -98,6 +104,9 @@ firebase.initializeApp(firebaseCred);
     AddSubCatPage,
     AddSubCatItemPage,
     SubCatItemViewPage,    
+    FaqsPage,
+    FaqsUserPage,
+    FaqsVendorPage,   
 
   ],
   providers: [

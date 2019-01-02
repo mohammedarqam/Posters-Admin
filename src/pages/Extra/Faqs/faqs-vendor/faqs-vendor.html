@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-navbar color="primary">
+      <ion-title>FAQ's Vendor</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  
+  <ion-content padding>
+    <ion-card>
+      <ion-card-content>
+        <ion-item>
+          <ion-label stacked>Question</ion-label>
+          <ion-input type="text" [(ngModel)]="ques"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label stacked>Answer</ion-label>
+          <ion-textarea [(ngModel)]="ans"></ion-textarea>
+        </ion-item>
+        <button ion-button (click)="checkData()" float-right margin-top>Add FAQ</button>
+      </ion-card-content>
+    </ion-card>
+  
+    <div class="mainCard">
+  
+      <ion-card *ngFor="let q of faqs">
+        <ion-navbar color="primary">
+          <ion-title>{{q.Question}}</ion-title>
+        </ion-navbar>
+        <ion-card-content>
+          <h2>{{q.Answer}}</h2>
+        </ion-card-content>
+      </ion-card>
+  
+  
+    </div>
+  </ion-content>

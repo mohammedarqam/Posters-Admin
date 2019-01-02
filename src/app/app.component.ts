@@ -9,6 +9,9 @@ import { UsersPage } from '../pages/MainPages/users/users';
 import { BannersPage } from '../pages/MainPages/banners/banners';
 import { ProductsPage } from '../pages/MainPages/products/products';
 import { CategoriesPage } from '../pages/Categories/categories/categories';
+import { FaqsPage } from '../pages/Extra/Faqs/faqs/faqs';
+import { FaqsUserPage } from '../pages/Extra/Faqs/faqs-user/faqs-user';
+import { FaqsVendorPage } from '../pages/Extra/Faqs/faqs-vendor/faqs-vendor';
 @Component({
   templateUrl: 'app.html'
 })
@@ -35,6 +38,7 @@ export class MyApp {
       { title: 'Products', component: ProductsPage, icon: "md-cube",color: "whiter" },
       { title: 'Users', component: UsersPage, icon: "ios-people",color: "whiter" },
       { title: 'Banners', component: BannersPage, icon: "md-images",color: "whiter" },
+      { title: "Faq's", component: FaqsPage, icon: "md-help",color: "whiter" },
     ];
     this.activePage = this.pages[0];
 
@@ -47,7 +51,7 @@ export class MyApp {
         firebase.database().ref("Admin Data").child("Admins").child(user.uid).once('value',itemSnap=>{
             if(itemSnap.exists()){
               var welMsg = "Welcome"+" "+itemSnap.val().Name;
-              this.rootPage = DashboardPage;
+              this.rootPage = FaqsVendorPage;
               this.presentToast(welMsg);
             }else{
               firebase.auth().signOut().then(()=>{
